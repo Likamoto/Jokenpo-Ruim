@@ -5,21 +5,21 @@ placar = {"Jogador": 0, "Máquina": 0, "Empates": 0}
 
 def jogo(replay=False):
 #    Variáveis
-   resposta = ["Sim", "Não"]
-   lista_Variaveis = ["Pedra", "Papel", "Tesoura"]
+   resposta = ["sim", "não"]
+   lista_Variaveis = ["pedra", "papel", "tesoura"]
 
    if not replay:
       while True:
-         resposta_player = input("Vamos jogar Pedra, Papel e Tesoura? ")
+         resposta_player = input("Vamos jogar Pedra, Papel e Tesoura? ").strip().lower()
          if resposta_player in resposta:
             break
          else:
             print("Resposta não aceita, tente novamente!")
    else:
-      resposta_player = "Sim"
+      resposta_player = "sim"
 
    if resposta_player == resposta[0]:
-        opcoes = [input("Ótimo, vamos jogar! Digite sua opção: ")]
+        opcoes = [input("Ótimo, vamos jogar! Digite sua opção: ").strip().lower()]
         while True:
             if opcoes[0] not in lista_Variaveis:
                opcoes[0] = input("Essa opção não foi aceita. Tente outra! ")
@@ -70,12 +70,12 @@ def checagem_Valores(valores_Player_Maquina):
 def reJogar(ganhador):
    if ganhador == "Empate!":
       print("Placar: ","Empates", placar["Empates"],"Jogador", placar["Jogador"],"Máquina", placar["Máquina"])
-      retry = input(f"{ganhador} Gostaria de jogar novamente? ")
+      retry = input(f"{ganhador} Gostaria de jogar novamente? ").strip().lower()
    else:
       print("Placar: ","Empates", placar["Empates"],"Jogador", placar["Jogador"],"Máquina", placar["Máquina"])
-      retry = input(f"{ganhador} ganhou! Gostaria de jogar novamente? ")
+      retry = input(f"{ganhador} ganhou! Gostaria de jogar novamente? ").strip().lower()
 
-   if retry == "Sim":
+   if retry == "sim":
       checagem_Valores(jogo(True))
    else: 
       print("Okay, jogaremos mais tarde! :) ")
